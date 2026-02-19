@@ -1,0 +1,60 @@
+# -----------------------
+# Secrets & Credentials
+# -----------------------
+
+# Box credential files
+box-ccg.json
+box-jwt.json
+
+# Secret directories
+.secrets/
+data/.secrets/
+ /data/.secrets/
+
+# Environment files
+.env
+.env.*
+*.env
+
+# -----------------------
+# Box CLI Local Config
+# -----------------------
+
+# Box CLI auth cache
+.box/
+~/.box/
+
+# -----------------------
+# Node / CLI Artifacts
+# -----------------------
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# -----------------------
+# OS / Editor Files
+# -----------------------
+
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# -----------------------
+# Logs
+# -----------------------
+
+logs/
+*.log
+
+# -----------------------
+# Misc
+# -----------------------
+
+dist/
+build/
+coverage/
