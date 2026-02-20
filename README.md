@@ -63,7 +63,9 @@ also enable **Manage AI**.
 
 ## Installation
 
-1.  Copy this skill into your OpenClaw `skills/` directory.
+1.  Clone or copy this repository into your OpenClaw `skills/`
+    directory. The `SKILL.md` file at the root is what OpenClaw
+    uses to load the skill.
 2.  Provide your own Box
     [CCG](https://developer.box.com/guides/authentication/client-credentials)
     or JWT configuration file. Place it at:
