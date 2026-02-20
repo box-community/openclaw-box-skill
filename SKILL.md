@@ -160,6 +160,30 @@ Access depends on that identity's permissions.
 
 ------------------------------------------------------------------------
 
+# ⚠️ Troubleshooting Authentication
+
+If `box users:get me` returns `invalid_grant` or
+`Grant credentials are invalid`, check the following:
+
+1.  **App not authorized in Admin Console.** This is the most common
+    cause. A Box admin must authorize the Custom App before it
+    can make API calls. Go to the Admin Console and approve the
+    application. See the
+    [Authorization guide](https://developer.box.com/guides/authorization/).
+2.  **Stale client secret.** If the secret was regenerated in the
+    Developer Console after the config file was created, update
+    the config with the new secret.
+3.  **Wrong client ID or enterprise ID.** Double-check the values
+    in your config file against the Developer Console.
+4.  **Missing application scopes.** Ensure the app has the required
+    [scopes](https://developer.box.com/guides/api-calls/permissions-and-errors/scopes)
+    enabled (e.g. "Read and write all files and folders", and
+    "Manage AI" if using Box AI features).
+
+Ask the user to verify these items if authentication fails.
+
+------------------------------------------------------------------------
+
 # 📂 Common Operations
 
 ## Browse Folders
