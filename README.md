@@ -28,7 +28,8 @@ account. To see what the service account owns, go to the
 [Box Admin Console](https://app.box.com/master) and navigate to **Content**.
 
 Because this is a developer preview, you should **run it on a separate
-Box instance** rather than your organization's primary account. You can do so by using a
+Box instance** rather than your organization's primary account. You can
+do so by using a
 **[free Box Developer account](http://account.box.com/signup/developer)**
 
 ------------------------------------------------------------------------
@@ -40,41 +41,68 @@ Box instance** rather than your organization's primary account. You can do so by
 -   Execute any supported `box` CLI command
 -   Run Box AI operations (QA, extract, structured extraction)
 
-AI operations are executed via [Box AI APIs](https://developer.box.com/ai-dev-zone).
+AI operations are executed via
+[Box AI APIs](https://developer.box.com/ai-dev-zone).
+
+------------------------------------------------------------------------
+
+## Prerequisites
+
+Your Box app must be
+[authorized in the Admin Console](https://developer.box.com/guides/authorization/)
+before it can make API calls. If you skip this step, authentication
+will fail with `invalid_grant`.
+
+The app must also have the appropriate
+[application scopes](https://developer.box.com/guides/api-calls/permissions-and-errors/scopes)
+enabled in the Developer Console. At a minimum, enable **Read and
+write all files and folders**. If you plan to use Box AI features,
+also enable **Manage AI**.
 
 ------------------------------------------------------------------------
 
 ## Installation
 
 1.  Copy this skill into your OpenClaw `skills/` directory.
-2.  Provide your own Box [CCG](https://developer.box.com/guides/authentication/client-credentials) or JWT configuration file. Place it at:
+2.  Provide your own Box
+    [CCG](https://developer.box.com/guides/authentication/client-credentials)
+    or JWT configuration file. Place it at:
 
 ```
 /data/.secrets/box-ccg.json
 ```
 
-3.  Ask OpenClaw to install the [Box CLI](https://github.com/box/boxcli) (if not already installed). For example:
+3.  Ask OpenClaw to install the
+    [Box CLI](https://github.com/box/boxcli) (if not already
+    installed). For example:
 
 ``` bash
 npm install -g @box/cli
 ```
 
-4.  Ask OpenClaw to register the Box environment and verify authentication. For example:
+4.  Ask OpenClaw to register the Box environment and verify
+    authentication. For example:
 
 ``` bash
 box configure:environments:add /data/.secrets/box-ccg.json --ccg-auth --name ccg --set-as-current
 box users:get me
 ```
 
-After this one-time setup, OpenClaw can invoke Box CLI commands and Box AI workflows directly.
+After this one-time setup, OpenClaw can invoke Box CLI commands and
+Box AI workflows directly.
 
 ------------------------------------------------------------------------
 
 ## CCG Configuration Template
 
-[Create a Box application](https://developer.box.com/guides/getting-started/first-application) using **Server Authentication (Client Credentials Grant)**. Note your app's **client ID**, **client secret**, and **enterprise ID**.
+[Create a Box application](https://developer.box.com/guides/getting-started/first-application)
+using **Server Authentication (Client Credentials Grant)**. Note your
+app's **client ID**, **client secret**, and **enterprise ID**.
 
-Then [authorize the application](https://developer.box.com/guides/authorization/) in the Box Admin Console. Your app cannot make API calls until an admin has approved it.
+Then
+[authorize the application](https://developer.box.com/guides/authorization/)
+in the Box Admin Console. Your app cannot make API calls until an
+admin has approved it.
 
 Then create:
 
